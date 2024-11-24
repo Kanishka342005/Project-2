@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: grey;  /* Changed background to grey */
+            font-family: Arial, sans-serif;
+        }
+        .upload-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="file"] {
+            padding: 10px;
+        }
+        .file-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-width: 150px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Upload Form -->
+    <div class="upload-container">
+        <input type="file" id="fileInput" onchange="updateFileName()">
+        <div class="file-info" id="fileInfo">No file chosen</div>
+        <button type="button" onclick="uploadFile()">Upload</button>
+    </div>
+
+    <script>
+        // Function to update the file info box when a file is chosen
+        function updateFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const fileInfo = document.getElementById('fileInfo');
+            const fileName = fileInput.files.length ? fileInput.files[0].name : 'No file chosen';
+            fileInfo.textContent = fileName;
+        }
+
+        // Function to simulate file upload action
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length) {
+                alert("File uploaded successfully: " + fileInput.files[0].name);
+            } else {
+                alert("Please choose a file before uploading.");
+            }
+        }
+    </script>
+</body>
+</html>
