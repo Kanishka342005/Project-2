@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('imegs.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+            padding: 10px 20px;
+            box-sizing: border-box;  /* Ensure padding doesn't affect the width */
+            display: flex;
+            justify-content: space-between;
+        }
+        .login-container {
+            position: relative;
+            left: -100px; /* Shift the box slightly to the left */
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function validateLogin() {
+            // Log to see if function is being called
+            console.log("validateLogin called");
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Check for incorrect username and password separately
+            if (username !== 'health' && password !== 'health') {
+                alert('Both username and password are incorrect. Please try again.');
+            } else if (username !== 'health') {
+                alert('Incorrect username. Please enter a valid username.');
+            } else if (password !== 'health') {
+                alert('Incorrect password. Please enter a valid password.');
+            } else {
+                window.location.href = 'aflogin.html'; // Redirect to the file upload page
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Title spanning the full width -->
+    <div class="header">
+        <span>Mental Health Prediction</span>
+        <span></span> <!-- Empty span to help stretch content across -->
+    </div>
+    
+    <!-- Login Form -->
+    <div class="login-container">
+        <h1>Login</h1>
+        <form onsubmit="event.preventDefault(); validateLogin();">
+            <input type="text" id="username" placeholder="Enter username">
+            <input type="password" id="password" placeholder="Enter password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
